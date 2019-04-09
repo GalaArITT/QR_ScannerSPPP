@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Alert, AlertController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { Provider } from '@angular/compiler/src/core';
+import { Provider } from '../../service/provider';
 
 
 
@@ -22,7 +22,12 @@ export class HomePage {
     //leer qr
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
-      this.showMessage(barcodeData.text);
+      //this.showMessage(barcodeData.text);
+      this.provider.registrarAsistencia({
+        ID_LISTA: barcodeData.text //campo que obtiene el id
+      }).subscribe(res => {
+        console.log(res);
+      });
      }).catch(err => {
          console.log('Error', err);
      });

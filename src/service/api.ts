@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Api {
 
-    private url = 'http://galaaritt-001-site1.itempurl.com/api/ControlAsistencias'; //http://localhost:61873/api/ControlAsistencias //
+    private url = 'http://galaaritt-001-site1.itempurl.com/'; 
+    //http://localhost:61873/api/ControlAsistencias //
     private headers: Headers = new Headers();
     
     constructor(private http: Http) { }
