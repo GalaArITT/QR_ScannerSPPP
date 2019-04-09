@@ -12,8 +12,6 @@ export class Api {
     constructor(private http: Http) { }
 
     put(endpoint: string, body: any) {
-        // this.headers.set('Authorization', "Bearer " + this.help.getToken());
-        // const options = new RequestOptions({ headers: this.headers });
         return this.http.put(this.url + endpoint, body);
     }
 

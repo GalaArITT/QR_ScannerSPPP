@@ -23,9 +23,9 @@ export class HomePage {
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
       //this.showMessage(barcodeData.text);
-      this.provider.registrarAsistencia({
-        ID_LISTA: barcodeData.text //campo que obtiene el id
-      }).subscribe(res => {
+      this.provider.registrarAsistencia(
+        //{ID_LISTA: barcodeData.text //campo que obtiene el id}
+        barcodeData.text).subscribe(res => {
         console.log(res);
       });
      }).catch(err => {
