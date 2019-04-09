@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 export class Provider {
     constructor(private api: Api) { }
 
-    registrarAsistencia(id) {
-        return this.api.put("api/ControlAsistencias/"+id,null); //http://localhost:61873/api/ControlAsistencias
+
+    registrarAsistencia(id:string, body:any) {
+        return this.api.put("api/ControlAsistencias/"+id,body); //http://localhost:61873/api/ControlAsistencias
     }
 }

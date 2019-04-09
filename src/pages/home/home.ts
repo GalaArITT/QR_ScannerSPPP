@@ -22,19 +22,23 @@ export class HomePage {
     //leer qr
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
-      //this.showMessage(barcodeData.text);
       this.provider.registrarAsistencia(
         //{ID_LISTA: barcodeData.text //campo que obtiene el id}
-        barcodeData.text).subscribe(res => {
-        console.log(res);
+        barcodeData.text,
+        {
+          "ID_LISTA": barcodeData.text
+        }).subscribe((res:any) => {
+          this.showMessage(res._body);
+          console.log(res);
       });
-     }).catch(err => {
+     }).catch((err:any) => {
+      this.showMessage(err._body);
          console.log('Error', err);
      });
   }
   showMessage(id:any){
     this.alert.create({
-      title:"Dato leído: ",
+      title:"Mensaje: ",
       subTitle: id,
       buttons: ["Cerrar"]
     }).present();
