@@ -27,6 +27,7 @@ export class HomePage {
         barcodeData.text,
         {
           "ID_LISTA": barcodeData.text
+          //faltan todos los campos 
         }).subscribe((res:any) => {
           this.showMessage(res._body);
           console.log(res);
